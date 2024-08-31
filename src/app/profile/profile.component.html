@@ -1,11 +1,16 @@
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-  perfil
+<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+  </svg>
 </button>
 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="staticBackdropLabel">Perfil</h5>
+    <h5 class="offcanvas-title" id="staticBackdropLabel">{{ user.first_name }}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="imagen">
+    <img [src]="imagenUrl(user)" class="card-img-top" style="object-fit: cover; height: 200px;">
   </div>
   <div class="offcanvas-body">
     <div>

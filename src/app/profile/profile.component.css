@@ -1,0 +1,11 @@
+.imagen{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(126, 118, 2, 0.744);
+
+}

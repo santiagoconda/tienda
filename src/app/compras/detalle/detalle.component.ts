@@ -1,31 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UsersService } from '../../users.service';
+import { CommonModule } from '@angular/common';
+import { Iproductos } from '../../../interfaces/product.interface';
+import { TotalComponent } from "../total/total.component";
+import { subscribe } from 'diagnostics_channel';
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule, RouterOutlet, TotalComponent],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
-export class DetalleComponent {
-  productos: any= {}
+export class DetalleComponent implements OnInit {
+  products: Iproductos[] =[]
   constructor(public userService: UsersService, public router: Router){}
-  ngOnInit():void{
-    this.getviewproductos();
+  ngOnInit(): void {
+    this.userService.products.subscribe(products =>{
+      this.products = products;
+    })
   }
-  
-  getviewproductos(): void{
-    this.userService.verproductos().subscribe(
-      (data:any)=>{
-        this.productos=data;
-      }
-    )
+  productoComprado(){
+    this.userService.verpedidos().subscribe(products=>{
+      this.products = products
+    })
+    
   }
-  imagenUrl(item: any): string {
-    return `http://localhost:8000${item.imagen}`;
+  guardar_pedido(){
+    this.userService.registrarTodos().subscribe(pedidos =>{{
+      console.log(pedidos)
+      this.router.navigate(['/comprar'])
+    }});
+  }
+  eliminarpro(indice: number){
+    this.userService.borrar_produc(indice);
   }
 
 }

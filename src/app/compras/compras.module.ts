@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
     CommonModule,
     ComprasRoutingModule,
     FormsModule,
-    RouterOutlet
+    RouterOutlet,
   ]
 })
 export class ComprasModule { }

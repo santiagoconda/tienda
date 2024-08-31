@@ -1,0 +1,12 @@
+/* Asegúrate de que el contenedor ocupe el 100% del ancho de la página */
+.container {
+    display: grid;
+    grid-template-columns: 5fr 1fr; /* Dos columnas: una para el contenido y otra para el detalle */
+    gap: 20px; /* Espacio entre columnas */
+}
+
+app-detalle {
+    display: flex;
+    justify-content: left;
+    width: 50%; /* Ajusta el ancho si es necesario */
+}

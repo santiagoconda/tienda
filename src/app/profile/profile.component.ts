@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { DetproductosComponent } from "../produtuctos/detproductos/detproductos.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [FormsModule, RouterLink, RouterOutlet, DetproductosComponent],
+  imports: [FormsModule, RouterLink, RouterOutlet],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -35,5 +34,8 @@ export class ProfileComponent implements OnInit {
         this.loading = false; 
       }
     );
+  }
+  imagenUrl(item: any): string {
+    return `http://localhost:8000${item.imagen}`;
   }
 }

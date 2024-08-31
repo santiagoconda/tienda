@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UsersService } from '../../users.service';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from "../../navs/user/user.component";
@@ -13,10 +13,11 @@ import { AdminComponent } from "../../navs/admin/admin.component";
   templateUrl: './detalleadmin.component.html',
   styleUrl: './detalleadmin.component.css'
 })
-export class DetalleadminComponent {
+export class DetalleadminComponent implements OnInit{
   productos: any=[];
+  productoId: number= 0
 
-  constructor(public userService: UsersService, public router: Router){}
+  constructor(public userService: UsersService, public router: Router, public activerouter: ActivatedRoute){}
   ngOnInit():void{
       this.userService.verproductos().subscribe(
         (data:any)=>{
@@ -34,5 +35,17 @@ export class DetalleadminComponent {
   imagenUrl(item: any): string {
     return `http://localhost:8000${item.imagen}`;
   }
-
+  eliminar(id: number){
+    if(confirm('Deseas Eliminar el producto?')){
+      this.userService.delete(id).subscribe({
+        next:()=>{
+          this.ngOnInit();
+        },
+        error: (err) => {
+          console.error('Error:', err);
+        }
+      });
+      alert('Producto eliminado')
+    }
+  }
 }

@@ -33,10 +33,11 @@ export class ComprarComponent implements OnInit  {
     formData.append('cardExpiration', this.cardExpiration.toString()),
     formData.append('cardCVV', this.cardCVV.toString()),
     this.userService.registerMetodoPago(formData).subscribe(data =>{
-      this.router.navigateByUrl("detalle/comprar");
+      this.router.navigateByUrl("/verproductos");
     }, error => {
       console.error('error al registrar',error)
     });
+    alert('Se realizo su compra con exito!!')
   }
 
 }

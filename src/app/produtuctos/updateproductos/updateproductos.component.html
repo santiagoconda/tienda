@@ -1,32 +1,33 @@
 <app-admin></app-admin>
- <div>
-    <div>
-    <p>No tienes permisos para registrar productos.</p>
-  </div>
-<form method="post" class="row g-3 needs-validation">
-    <div class="col-md-4">
-        <label class="form-label">Imagen</label>
-        <input type="file" class="form-control" required (change)="onFile($event)" name="imagen">
-    </div>
-    <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Nombre Del producto</label>
-        <input type="text" class="form-control" id="validationCustom01"[(ngModel)]="data.nombre" name="nombre">
-    </div>
+<div>
+    <form [formGroup]="editarPro"  class="row g-3 needs-validation" >
+        <div class="col-md-4">
+            <label class="form-label">Nombre Del producto</label>
+            <input type="text" class="form-control" formControlName="nombre">
+        </div>
 
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" id="validationCustom02"[(ngModel)]="data.descripcion" name="descripcion">
-    </div>
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="validationCustom02"[(ngModel)]="data.cantidad" name="cantidad">
-    </div>
+        <div class="col-md-4">
+            <label class="form-label">Descripcion</label>
+            <input type="text" class="form-control" formControlName="descripcion">
+        </div>
 
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Precio</label>
-        <input type="number" class="form-control" id="validationCustom02"[(ngModel)]="data.precio" name="Precio">
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit" (click)="ngOnInit()">actualizar</button>
-    </div>
-</form>
+        <div class="col-md-4">
+            <label class="form-label">Cantidad</label>
+            <input type="number" class="form-control" formControlName="cantidad">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control" formControlName="precio">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Imagen</label>
+            <input type="file" class="form-control" (change)="onFile($event)">
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" (click)="onSubmit()">Actualizar</button>
+        </div>
+    </form>
+</div>

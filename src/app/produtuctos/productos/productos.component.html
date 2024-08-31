@@ -2,28 +2,28 @@
 <div *ngIf="!isAdmin">
     <p>No tienes permisos para registrar productos.</p>
   </div>
-<form method="post" class="row g-3 needs-validation" novalidate>
+<form method="post" class="row g-3 needs-validation">
     <div class="col-md-4">
         <label class="form-label">Imagen</label>
         <input type="file" class="form-control" required (change)="onFile($event)" name="imagen">
     </div>
     <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Nombre Del producto</label>
-        <input type="text" class="form-control" id="validationCustom01" required [(ngModel)]="nombre" name="nombre">
+        <label  class="form-label">Nombre Del producto</label>
+        <input type="text" class="form-control" required [(ngModel)]="nombre" name="nombre">
     </div>
 
     <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" id="validationCustom02" required [(ngModel)]="descripcion" name="descripcion">
+        <label  class="form-label">Descripcion</label>
+        <input type="text" class="form-control" required [(ngModel)]="descripcion" name="descripcion">
     </div>
     <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="validationCustom02" required [(ngModel)]="cantidad" name="cantidad">
+        <label  class="form-label">Cantidad</label>
+        <input type="number" class="form-control" required [(ngModel)]="cantidad" name="cantidad">
     </div>
 
     <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Precio</label>
-        <input type="number" class="form-control" id="validationCustom02" required [(ngModel)]="precio" name="Precio">
+        <label  class="form-label">Precio</label>
+        <input type="number" class="form-control"required [(ngModel)]="precio" name="Precio">
     </div>
     <div class="col-12">
         <button class="btn btn-primary" type="submit" (click)="registerProductos()">Registrar</button>
