@@ -1,0 +1,21 @@
+<app-admin></app-admin>
+<table class="table table-sm">
+    <thead class="table-primary">
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>opcion</th>
+    </thead>
+    <br>
+    <tbody *ngFor="let item of productos">
+        <td><img [src]="imagenUrl(item)" class="card-img-top"style="object-fit: cover; height: 50px;"></td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.descripcion }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.precio }}</td>
+        <td><button (click)="nuevoProducto()">añadir</button></td>
+        <td><button (click)="editarProducto(item.id)">actualizar</button></td>
+    </tbody>
+</table>

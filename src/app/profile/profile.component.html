@@ -1,0 +1,19 @@
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+  perfil
+</button>
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">Perfil</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <div class="cardd" style="width: 18rem;">
+          <p class="card-text">Nombre de Usuario <b>{{ user.username }}</b></p>
+          <p class="card-text"> email: <b>{{ user.email }}</b></p>
+          <p class="card-text">Es Administrador? : <b>{{ user.is_staff }}</b></p>
+      </div>
+    </div>
+  </div>
+</div>

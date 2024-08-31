@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-warning " >
+    <div>
+        <a class="navbar-brand" href="#">Burger</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<div class="cont1"> 
+    <form method="post"></form>
+    <b>Registrate</b>
+    <br>
+    <br>
+        <div class="mb-3">
+            <input type="text" class="form-control"   name="email"  placeholder="Nombre de ususario" required [(ngModel)]="username">
+        </div>
+        <div class="mb-3">
+            <!-- <label  class="form-label"></label> -->
+            <input type="email" class="form-control"  name="email" placeholder="Email" required [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+            <!-- <label  class="form-label">Password</label> -->
+            <input type="password" class="form-control" placeholder="contraseña" required [(ngModel)]="password">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="is_staff">
+            <label class="form-check-label" for="exampleCheck1">Administrador?</label>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary" (click)="register()">Registrame</button>
+        <br>
+        <label><b>Ya tienes cuenta?  </b><a [routerLink]="['/login']">Iniciar Sesion</a></label>
+    
+</div>
